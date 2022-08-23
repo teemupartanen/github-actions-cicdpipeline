@@ -17,16 +17,16 @@ on:
 jobs:
   # This workflow contains a single job called "build"
     build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
 
-      - name: Run markdown lint
-        run: |
-          npm install remark-cli remark-preset-lint-consistent
-          npx remark . --use remark-preset-lint-consistent --frail
+        - name: Run markdown lint
+          run: |
+            npm install remark-cli remark-preset-lint-consistent
+            npx remark . --use remark-preset-lint-consistent --frail
 
-      - uses: actions/upload-artifact@main
-        with:
-          name: remark-lint-report
-          path: public/
+        - uses: actions/upload-artifact@main
+          with:
+            name: remark-lint-report
+            path: public/
